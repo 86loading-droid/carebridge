@@ -82,7 +82,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdro
 .hero-note{margin-top:20px;font-size:13.5px;color:var(--muted)}
 .hero-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
 .hero-card h4{margin:0 0 4px;font-size:15px;letter-spacing:-.02em}
-.hero-card .sub{font-size:13px;color:var(--muted);margin:0 0 18px}
+.hero-card .svcitem{font-size:13px;color:var(--muted);margin:0 0 18px}
 .ladder{display:flex;flex-direction:column;gap:10px}
 .rung{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fbfdfd}
 .rung .n{width:28px;height:28px;flex:0 0 28px;border-radius:8px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;background:var(--brand-2)}
@@ -264,7 +264,7 @@ footer a:hover{color:#fff}
 .disclaimer{background:#0a1622;border:1px solid #22394a;border-radius:10px;padding:14px 16px;font-size:12.5px;color:#8fa9b6;margin-top:28px}
 
 /* ===== 첫화면 서비스 도식 ===== */
-.hero{padding:26px 0 48px}
+.hero{padding:22px 0 42px}
 .hero-top{max-width:830px}
 .hero-top h1{margin:9px 0 10px;font-size:clamp(27px,3.5vw,40px);line-height:1.18}
 .hero-top .lead{margin:0 0 15px;max-width:54em;font-size:16.5px}
@@ -332,6 +332,39 @@ footer a:hover{color:#fff}
 .branch.t3 .minis .mini{color:#a9620f}
 .branch.t3 .minis .mini:hover{border-color:var(--accent);background:var(--accent-soft)}
 
+
+/* ===== 2대영역 구조 ===== */
+.rail2::after{left:25%;right:25%}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.dom{position:relative;display:flex;flex-direction:column;background:var(--surface);
+  border:1px solid var(--line);border-radius:18px;padding:17px 18px 14px;box-shadow:var(--shadow)}
+.dom::before{content:"";position:absolute;left:50%;top:-15px;width:2px;height:15px;background:var(--line);transform:translateX(-50%)}
+.dom-head{margin-bottom:12px}
+.dom-tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.04em;
+  padding:5px 12px;border-radius:999px;background:var(--brand);color:#fff}
+.dom.d2 .dom-tag{background:var(--accent)}
+.dom-head h3{margin:8px 0 4px;font-size:19.5px;letter-spacing:-.025em}
+.whom{margin:0;font-size:12.5px;color:var(--muted);line-height:1.5;word-break:keep-all}
+.svclist{display:grid;gap:9px}
+.dom.d2 .svclist{grid-template-columns:1fr 1fr}
+.svcitem{display:flex;align-items:flex-start;gap:10px;padding:10px 11px;border:1px solid var(--line);
+  border-radius:12px;background:#fbfdfd;text-decoration:none;color:inherit;transition:.15s}
+.svcitem:hover{border-color:var(--brand-2);background:var(--brand-soft)}
+.dom.d2 .svcitem:hover{border-color:var(--accent);background:var(--accent-soft)}
+.svcitem img{width:34px;height:34px;border-radius:50%;flex:none;background:var(--brand-soft);display:block}
+.svcitem b{display:block;font-size:14.5px;letter-spacing:-.02em;line-height:1.3;word-break:keep-all}
+.svcitem span{display:block;font-size:11.8px;color:var(--muted);margin-top:3px;line-height:1.45;word-break:keep-all}
+.svcitem .nm{font-size:11px;font-weight:700;color:var(--brand-2);margin-top:5px}
+.dom.d2 .svcitem .nm{color:#a9620f}
+.dom-note{margin:12px 0 0;padding-top:10px;border-top:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);line-height:1.55;word-break:keep-all}
+@media(max-width:900px){
+  .dual{grid-template-columns:1fr;gap:14px}
+  .dom::before{display:none}
+  .rail2::after{display:none}
+  .dom.d2 .svclist{grid-template-columns:1fr}
+}
+
 </style>
 </head>
 <body>
@@ -358,8 +391,8 @@ footer a:hover{color:#fff}
     <ul id="menu">
       <li><a class="link" href="#about">기관 소개</a></li>
       <li><a class="link" href="#services">서비스 영역</a></li>
-      <li><a class="link" href="#programs">교육 과정</a></li>
-      <li><a class="link" href="#therapy">치료 프로그램</a></li>
+      <li><a class="link" href="#programs">종사자 교육</a></li>
+      <li><a class="link" href="#therapy">장애아동 지원</a></li>
       <li><a class="link" href="#team">전문 인력</a></li>
             <li><a class="link" href="#library">연구·자료실</a></li>
       <li><a class="link" href="#member">자료 신청</a></li>
@@ -380,8 +413,8 @@ footer a:hover{color:#fff}
       <span class="eyebrow">근거기반 실제(EBP) · 최소제한 원칙 · 법령 준수</span>
       <h1>위기행동 앞에서<br><em>학생도 교직원도</em> 안전하도록</h1>
       <p class="lead">
-        세 명의 전문가가 각자의 영역을 맡습니다. 행동중재, 비만치료, 언어 · 인지치료가
-        신체적 개입 예방 중재와 짝을 이루어 하나의 체계로 운영됩니다.
+        종사자를 가르치는 일과 아동을 직접 지원하는 일, 두 축으로 운영합니다.
+        같은 전문가가 양쪽을 함께 맡아 현장의 판단과 아동의 변화가 끊기지 않도록 설계했습니다.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="#services">서비스 전체 보기</a>
@@ -393,81 +426,86 @@ footer a:hover{color:#fff}
       <div class="hub">
         <span class="hub-badge">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.35-9.33-8.36A5.5 5.5 0 0 1 12 6.5a5.5 5.5 0 0 1 9.33 6.14C19 16.65 12 21 12 21z"/></svg>
-          케어브릿지 센터 &middot; 3개 전문 영역
+          케어브릿지 센터
         </span>
       </div>
-      <div class="rail" aria-hidden="true"></div>
+      <div class="rail rail2" aria-hidden="true"></div>
 
-      <p class="swipe-hint">옆으로 밀어 세 영역을 모두 확인하세요</p>
+      <div class="dual">
+        <section class="dom d1">
+          <div class="dom-head">
+            <span class="dom-tag">대영역 1</span>
+            <h3>종사자 교육</h3>
+            <p class="whom">특수교사 &middot; 특수교육실무원 &middot; 사회복지사 &middot; 생활지도원 &middot; 치료사 &middot; 활동지원사</p>
+          </div>
+          <div class="svclist">
+            <a class="svcitem" href="#programs">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTYwIiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNjAiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4NCBjMzQgMCA1OSAyNCA1OSA1NiB2MTggYzAgMzggLTI2IDY0IC01OSA2NCBzLTU5IC0yNiAtNTkgLTY0IHYtMTggYzAgLTMyIDI1IC01NiA1OSAtNTYgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxNzgiIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTc4IiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEyNyAxNDUgcTEzIC02IDI3IC0yIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE2NiAxNDMgcTE0IC00IDI3IDIiIHN0cm9rZT0iIzJBMjUyMyIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICAKICA8ZWxsaXBzZSBjeD0iMTM5IiBjeT0iMTU5IiByeD0iNS42IiByeT0iNi42OTk5OTk5OTk5OTk5OTkiIGZpbGw9IiMyQTI1MjMiLz4KICA8ZWxsaXBzZSBjeD0iMTgxIiBjeT0iMTU5IiByeD0iNS42IiByeT0iNi42OTk5OTk5OTk5OTk5OTkiIGZpbGw9IiMyQTI1MjMiLz4KICA8Y2lyY2xlIGN4PSIxNDAuOSIgY3k9IjE1Ni42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjE4Mi45IiBjeT0iMTU2LjYiIHI9IjEuOCIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC45Ii8+CiAgPHBhdGggZD0iTTE2MCAxNjUgdjExIiBzdHJva2U9IiNFMEFGODUiIHN0cm9rZS13aWR0aD0iNC42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNMTQ5IDE5MSBxMTEgNyAyMiAwIiBzdHJva2U9IiNDOTdGNkUiIHN0cm9rZS13aWR0aD0iNC42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8IS0tIOuouOumrCDCtyDsnbTrp4jrpbwg642u64qUIOuRkOq6vOyatCDslZ7rqLjrpqwgLS0+CiAgPHBhdGggZD0iTTEwMCAxNTggQzk0IDk4IDEyMSA2NiAxNjAgNjYgQzE5OSA2NiAyMjYgOTggMjIwIDE1OAogICAgICAgICAgIEMyMTggMTM4IDIxMyAxMjAgMjA0IDExMwogICAgICAgICAgIEMxOTEgMTI2IDE2NiAxMzEgMTQzIDEyNgogICAgICAgICAgIEMxMjcgMTIzIDExNCAxMzAgMTA3IDE0NQogICAgICAgICAgIEMxMDQgMTQ5IDEwMiAxNTQgMTAwIDE1OCBaIiBmaWxsPSIjMkEyNTIzIi8+CiAgPHBhdGggZD0iTTExMiAxMDAgQzEyNiA4MiAxNDIgNzQgMTYwIDc0IEMxODIgNzQgMjAwIDg2IDIxMSAxMDgKICAgICAgICAgICBDMTk2IDkyIDE3NiA4NCAxNTYgODYgQzEzOCA4OCAxMjMgOTMgMTEyIDEwMCBaIiBmaWxsPSIjM0EzMzMwIiBvcGFjaXR5PSIwLjU1Ii8+CiAgPHBhdGggZD0iTTIwNCAxMTMgQzE5OCAxMjEgMTg4IDEyNyAxNzYgMTMwIEMxODggMTIxIDE5NiAxMTAgMjAwIDk4CiAgICAgICAgICAgQzIwMiAxMDMgMjAzIDEwOCAyMDQgMTEzIFoiIGZpbGw9IiMxQTE2MTUiLz4KPHBhdGggZD0iTTE2MCAyMzQgYy01OCAwIC0xMDQgMjYgLTEyMiA1OCBjLTEwIDE4IC0xNSAzMiAtMTcgNTAgaDI4NiBjLTIgLTE4IC03IC0zMiAtMTcgLTUwIGMtMTggLTMyIC02NCAtNTggLTEyMiAtNTggeiIgZmlsbD0iIzI2MzEzRiIvPgogIDxwYXRoIGQ9Ik0xMzIgMjQ2IGwyOCAyNyBsMjggLTI3IGM5IDMgMTcgNyAyNCAxMSBsLTUyIDQ3IGwtNTIgLTQ3IGM3IC00IDE1IC04IDI0IC0xMSB6IiBmaWxsPSIjRkZGRkZGIi8+CiAgPHBhdGggZD0iTTEzMiAyNDYgbDI4IDI3IGwtMTUgMTUgbC0zMyAtMzQgYzYgLTMgMTMgLTYgMjAgLTggeiIgZmlsbD0iIzFBMjQzMCIvPgogIDxwYXRoIGQ9Ik0xODggMjQ2IGwtMjggMjcgbDE1IDE1IGwzMyAtMzQgYy02IC0zIC0xMyAtNiAtMjAgLTggeiIgZmlsbD0iIzFBMjQzMCIvPgogIDxwYXRoIGQ9Ik0xNjAgMjc1IGwtMTAgMTAgbDEwIDEyIGwxMCAtMTIgeiIgZmlsbD0iIzU1Njc3QSIvPgogIDxwYXRoIGQ9Ik0xNjAgMjk3IGwtOSAxMSBsNSA0MCBoOCBsNSAtNDAgeiIgZmlsbD0iIzU1Njc3QSIvPgogIDxwYXRoIGQ9Ik0xNjAgMjc1IGwtMTAgMTAgbDEwIDEyIHoiIGZpbGw9IiM0MjUyNUYiLz4KICA8L2c+Cjwvc3ZnPg==" alt="최현석">
+              <div>
+                <b>신체적 개입 예방 중재 · 이론</b>
+                <span>행동의 기능 이해, 법령 위계와 제지의 요건, 기록 · 보고 체계</span>
+                <span class="nm">담당 · 최현석</span>
+              </div>
+            </a>
+            <a class="svcitem" href="#programs">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTU4IiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNTgiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4MiBjMzIgMCA1NiAyMyA1NiA1NSB2MjQgYzAgMzggLTI1IDY0IC01NiA2NCBzLTU2IC0yNiAtNTYgLTY0IHYtMjQgYzAgLTMyIDI0IC01NSA1NiAtNTUgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxNzciIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTc3IiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEzMCAxNDQgcTEyIC02IDI1IC0yIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNS42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTY3IDE0MiBxMTMgLTQgMjQgMyIgc3Ryb2tlPSIjMkEyNTIzIiBzdHJva2Utd2lkdGg9IjUuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPGVsbGlwc2UgY3g9IjEzOSIgY3k9IjE1OSIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGVsbGlwc2UgY3g9IjE4MSIgY3k9IjE1OSIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGNpcmNsZSBjeD0iMTQwLjkiIGN5PSIxNTYuNiIgcj0iMS44IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjkiLz4KICA8Y2lyY2xlIGN4PSIxODIuOSIgY3k9IjE1Ni42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxwYXRoIGQ9Ik0xNjAgMTY1IHYxMSIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjQuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTE1MCAxOTAgcTEwIDcgMjAgMCIgc3Ryb2tlPSIjQzk3RjZFIiBzdHJva2Utd2lkdGg9IjQuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPCEtLSDrqLjrpqwgwrcg7Jm87Kq97Jy866GcIO2dkOultOuKlCDsgqzshKAg7JWe66i466asIC0tPgogIDxwYXRoIGQ9Ik0xMDEgMTU2IEM5NiA5NCAxMjMgNjIgMTYwIDYyIEMxOTkgNjIgMjI0IDk0IDIxOSAxNTYKICAgICAgICAgICBDMjE3IDEzNCAyMTIgMTEyIDIwNCAxMDUKICAgICAgICAgICBDMTk3IDExOSAxNzkgMTI3IDE1NyAxMjkKICAgICAgICAgICBDMTQwIDEzMSAxMjQgMTI3IDExMyAxMzgKICAgICAgICAgICBDMTA4IDE0NCAxMDQgMTUwIDEwMSAxNTYgWiIgZmlsbD0iIzJBMjUyMyIvPgogIDxwYXRoIGQ9Ik0yMDQgMTA1IEMxOTkgMTE1IDE5MCAxMjIgMTc4IDEyNiBDMTkxIDExNiAxOTkgMTA0IDIwMyA5MAogICAgICAgICAgIEMyMDQgOTUgMjA0IDEwMCAyMDQgMTA1IFoiIGZpbGw9IiMxQTE2MTUiLz4KICA8cGF0aCBkPSJNMTE2IDg4IEMxMzAgNzQgMTQ1IDY4IDE2MCA2OCBDMTc4IDY4IDE5NCA3NiAyMDUgOTIKICAgICAgICAgICBDMTkwIDc4IDE3MCA3MiAxNTAgNzYgQzEzNiA3OSAxMjUgODMgMTE2IDg4IFoiIGZpbGw9IiMzQTMzMzAiIG9wYWNpdHk9IjAuNSIvPgo8cGF0aCBkPSJNMTYwIDIzNCBjLTcwIDAgLTExNiAyNiAtMTM0IDU4IGMtMTAgMTggLTE1IDMyIC0xNyA1MCBoMzEwIGMtMiAtMTggLTcgLTMyIC0xNyAtNTAgYy0xOCAtMzIgLTY0IC01OCAtMTM0IC01OCB6IiBmaWxsPSIjRkFGQUY3Ii8+CiAgPHBhdGggZD0iTTQwIDMwNCBjLTQgMTQgLTcgMjQgLTggMzggaDI1NiBjLTEgLTE0IC00IC0yNCAtOCAtMzggeiIgZmlsbD0iI0U3RUFFNiIvPgogIDwhLS0g64+E67O1IOqygOydgCDquYMgKOyZvOyqvSDslYTrnpggwrcg7Jik66W47Kq97J20IOychOuhnCDqsrnsuagpIC0tPgogIDxwYXRoIGQ9Ik0xMTYgMjQ2IEwxNjAgMjkwIiBzdHJva2U9IiMyRTJFMkUiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTIwNCAyNDYgTDE2MCAyOTAgTDEzMiAzNDYiIHN0cm9rZT0iIzFFMUUxRSIgc3Ryb2tlLXdpZHRoPSIxOSIKICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgZmlsbD0ibm9uZSIvPgogIDwvZz4KPC9zdmc+" alt="김상엽">
+              <div>
+                <b>신체적 개입 예방 중재 · 실기</b>
+                <span>안전 거리 확보, 관절과 호흡에 부담을 주지 않는 이탈 · 이동 보조</span>
+                <span class="nm">담당 · 김상엽</span>
+              </div>
+            </a>
+          </div>
+          <p class="dom-note">개입이 일어난 뒤를 다룹니다. 이론에서 판단 기준을, 실기에서 안전한 절차를 익힙니다.</p>
+        </section>
 
-      <div class="branches">
-        <article class="branch t1">
-          <div class="exp">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTYwIiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNjAiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4NCBjMzQgMCA1OSAyNCA1OSA1NiB2MTggYzAgMzggLTI2IDY0IC01OSA2NCBzLTU5IC0yNiAtNTkgLTY0IHYtMTggYzAgLTMyIDI1IC01NiA1OSAtNTYgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxNzgiIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTc4IiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEyNyAxNDUgcTEzIC02IDI3IC0yIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE2NiAxNDMgcTE0IC00IDI3IDIiIHN0cm9rZT0iIzJBMjUyMyIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICAKICA8ZWxsaXBzZSBjeD0iMTM5IiBjeT0iMTU5IiByeD0iNS42IiByeT0iNi42OTk5OTk5OTk5OTk5OTkiIGZpbGw9IiMyQTI1MjMiLz4KICA8ZWxsaXBzZSBjeD0iMTgxIiBjeT0iMTU5IiByeD0iNS42IiByeT0iNi42OTk5OTk5OTk5OTk5OTkiIGZpbGw9IiMyQTI1MjMiLz4KICA8Y2lyY2xlIGN4PSIxNDAuOSIgY3k9IjE1Ni42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjE4Mi45IiBjeT0iMTU2LjYiIHI9IjEuOCIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC45Ii8+CiAgPHBhdGggZD0iTTE2MCAxNjUgdjExIiBzdHJva2U9IiNFMEFGODUiIHN0cm9rZS13aWR0aD0iNC42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNMTQ5IDE5MSBxMTEgNyAyMiAwIiBzdHJva2U9IiNDOTdGNkUiIHN0cm9rZS13aWR0aD0iNC42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8IS0tIOuouOumrCDCtyDsnbTrp4jrpbwg642u64qUIOuRkOq6vOyatCDslZ7rqLjrpqwgLS0+CiAgPHBhdGggZD0iTTEwMCAxNTggQzk0IDk4IDEyMSA2NiAxNjAgNjYgQzE5OSA2NiAyMjYgOTggMjIwIDE1OAogICAgICAgICAgIEMyMTggMTM4IDIxMyAxMjAgMjA0IDExMwogICAgICAgICAgIEMxOTEgMTI2IDE2NiAxMzEgMTQzIDEyNgogICAgICAgICAgIEMxMjcgMTIzIDExNCAxMzAgMTA3IDE0NQogICAgICAgICAgIEMxMDQgMTQ5IDEwMiAxNTQgMTAwIDE1OCBaIiBmaWxsPSIjMkEyNTIzIi8+CiAgPHBhdGggZD0iTTExMiAxMDAgQzEyNiA4MiAxNDIgNzQgMTYwIDc0IEMxODIgNzQgMjAwIDg2IDIxMSAxMDgKICAgICAgICAgICBDMTk2IDkyIDE3NiA4NCAxNTYgODYgQzEzOCA4OCAxMjMgOTMgMTEyIDEwMCBaIiBmaWxsPSIjM0EzMzMwIiBvcGFjaXR5PSIwLjU1Ii8+CiAgPHBhdGggZD0iTTIwNCAxMTMgQzE5OCAxMjEgMTg4IDEyNyAxNzYgMTMwIEMxODggMTIxIDE5NiAxMTAgMjAwIDk4CiAgICAgICAgICAgQzIwMiAxMDMgMjAzIDEwOCAyMDQgMTEzIFoiIGZpbGw9IiMxQTE2MTUiLz4KPHBhdGggZD0iTTE2MCAyMzQgYy01OCAwIC0xMDQgMjYgLTEyMiA1OCBjLTEwIDE4IC0xNSAzMiAtMTcgNTAgaDI4NiBjLTIgLTE4IC03IC0zMiAtMTcgLTUwIGMtMTggLTMyIC02NCAtNTggLTEyMiAtNTggeiIgZmlsbD0iIzI2MzEzRiIvPgogIDxwYXRoIGQ9Ik0xMzIgMjQ2IGwyOCAyNyBsMjggLTI3IGM5IDMgMTcgNyAyNCAxMSBsLTUyIDQ3IGwtNTIgLTQ3IGM3IC00IDE1IC04IDI0IC0xMSB6IiBmaWxsPSIjRkZGRkZGIi8+CiAgPHBhdGggZD0iTTEzMiAyNDYgbDI4IDI3IGwtMTUgMTUgbC0zMyAtMzQgYzYgLTMgMTMgLTYgMjAgLTggeiIgZmlsbD0iIzFBMjQzMCIvPgogIDxwYXRoIGQ9Ik0xODggMjQ2IGwtMjggMjcgbDE1IDE1IGwzMyAtMzQgYy02IC0zIC0xMyAtNiAtMjAgLTggeiIgZmlsbD0iIzFBMjQzMCIvPgogIDxwYXRoIGQ9Ik0xNjAgMjc1IGwtMTAgMTAgbDEwIDEyIGwxMCAtMTIgeiIgZmlsbD0iIzU1Njc3QSIvPgogIDxwYXRoIGQ9Ik0xNjAgMjk3IGwtOSAxMSBsNSA0MCBoOCBsNSAtNDAgeiIgZmlsbD0iIzU1Njc3QSIvPgogIDxwYXRoIGQ9Ik0xNjAgMjc1IGwtMTAgMTAgbDEwIDEyIHoiIGZpbGw9IiM0MjUyNUYiLz4KICA8L2c+Cjwvc3ZnPg==" alt="최현석">
-            <div>
-              <b>최현석</b>
-              <span>위덕대학교 특수교육학과 교수 · 총괄</span>
-            </div>
+        <section class="dom d2">
+          <div class="dom-head">
+            <span class="dom-tag">대영역 2</span>
+            <h3>장애아동 지원</h3>
+            <p class="whom">도전행동 &middot; 의사소통 &middot; 인지 &middot; 건강 지원이 필요한 장애 학생</p>
           </div>
-          <span class="bl">영역 01 · 이론</span>
-          <h3>행동중재 <i class="plus">+</i> 신체적 개입<br>예방 중재 <em class="kd">이론</em></h3>
-          <ul>
-            <li>기능평가와 긍정적 행동지원(PBS)</li>
-            <li>신체적 개입의 법적 기준과 기록 체계</li>
-            <li>Level 1 · Level 3 이론 연수</li>
-          </ul>
-          <div class="minis">
-            <a class="mini" href="#programs">이론 연수 &rarr;</a>
-            <a class="mini" href="#library">법령 자료 &rarr;</a>
+          <div class="svclist">
+            <a class="svcitem" href="#therapy">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTYwIiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNjAiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4NCBjMzQgMCA1OSAyNCA1OSA1NiB2MTggYzAgMzggLTI2IDY0IC01OSA2NCBzLTU5IC0yNiAtNTkgLTY0IHYtMTggYzAgLTMyIDI1IC01NiA1OSAtNTYgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxNzgiIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTc4IiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEyNyAxNDUgcTEzIC02IDI3IC0yIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTE2NiAxNDMgcTE0IC00IDI3IDIiIHN0cm9rZT0iIzJBMjUyMyIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICAKICA8ZWxsaXBzZSBjeD0iMTM5IiBjeT0iMTU5IiByeD0iNS42IiByeT0iNi42OTk5OTk5OTk5OTk5OTkiIGZpbGw9IiMyQTI1MjMiLz4KICA8ZWxsaXBzZSBjeD0iMTgxIiBjeT0iMTU5IiByeD0iNS42IiByeT0iNi42OTk5OTk5OTk5OTk5OTkiIGZpbGw9IiMyQTI1MjMiLz4KICA8Y2lyY2xlIGN4PSIxNDAuOSIgY3k9IjE1Ni42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxjaXJjbGUgY3g9IjE4Mi45IiBjeT0iMTU2LjYiIHI9IjEuOCIgZmlsbD0iI0ZGRkZGRiIgb3BhY2l0eT0iMC45Ii8+CiAgPHBhdGggZD0iTTE2MCAxNjUgdjExIiBzdHJva2U9IiNFMEFGODUiIHN0cm9rZS13aWR0aD0iNC42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNMTQ5IDE5MSBxMTEgNyAyMiAwIiBzdHJva2U9IiNDOTdGNkUiIHN0cm9rZS13aWR0aD0iNC42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8IS0tIOuouOumrCDCtyDsnbTrp4jrpbwg642u64qUIOuRkOq6vOyatCDslZ7rqLjrpqwgLS0+CiAgPHBhdGggZD0iTTEwMCAxNTggQzk0IDk4IDEyMSA2NiAxNjAgNjYgQzE5OSA2NiAyMjYgOTggMjIwIDE1OAogICAgICAgICAgIEMyMTggMTM4IDIxMyAxMjAgMjA0IDExMwogICAgICAgICAgIEMxOTEgMTI2IDE2NiAxMzEgMTQzIDEyNgogICAgICAgICAgIEMxMjcgMTIzIDExNCAxMzAgMTA3IDE0NQogICAgICAgICAgIEMxMDQgMTQ5IDEwMiAxNTQgMTAwIDE1OCBaIiBmaWxsPSIjMkEyNTIzIi8+CiAgPHBhdGggZD0iTTExMiAxMDAgQzEyNiA4MiAxNDIgNzQgMTYwIDc0IEMxODIgNzQgMjAwIDg2IDIxMSAxMDgKICAgICAgICAgICBDMTk2IDkyIDE3NiA4NCAxNTYgODYgQzEzOCA4OCAxMjMgOTMgMTEyIDEwMCBaIiBmaWxsPSIjM0EzMzMwIiBvcGFjaXR5PSIwLjU1Ii8+CiAgPHBhdGggZD0iTTIwNCAxMTMgQzE5OCAxMjEgMTg4IDEyNyAxNzYgMTMwIEMxODggMTIxIDE5NiAxMTAgMjAwIDk4CiAgICAgICAgICAgQzIwMiAxMDMgMjAzIDEwOCAyMDQgMTEzIFoiIGZpbGw9IiMxQTE2MTUiLz4KPHBhdGggZD0iTTE2MCAyMzQgYy01OCAwIC0xMDQgMjYgLTEyMiA1OCBjLTEwIDE4IC0xNSAzMiAtMTcgNTAgaDI4NiBjLTIgLTE4IC03IC0zMiAtMTcgLTUwIGMtMTggLTMyIC02NCAtNTggLTEyMiAtNTggeiIgZmlsbD0iIzI2MzEzRiIvPgogIDxwYXRoIGQ9Ik0xMzIgMjQ2IGwyOCAyNyBsMjggLTI3IGM5IDMgMTcgNyAyNCAxMSBsLTUyIDQ3IGwtNTIgLTQ3IGM3IC00IDE1IC04IDI0IC0xMSB6IiBmaWxsPSIjRkZGRkZGIi8+CiAgPHBhdGggZD0iTTEzMiAyNDYgbDI4IDI3IGwtMTUgMTUgbC0zMyAtMzQgYzYgLTMgMTMgLTYgMjAgLTggeiIgZmlsbD0iIzFBMjQzMCIvPgogIDxwYXRoIGQ9Ik0xODggMjQ2IGwtMjggMjcgbDE1IDE1IGwzMyAtMzQgYy02IC0zIC0xMyAtNiAtMjAgLTggeiIgZmlsbD0iIzFBMjQzMCIvPgogIDxwYXRoIGQ9Ik0xNjAgMjc1IGwtMTAgMTAgbDEwIDEyIGwxMCAtMTIgeiIgZmlsbD0iIzU1Njc3QSIvPgogIDxwYXRoIGQ9Ik0xNjAgMjk3IGwtOSAxMSBsNSA0MCBoOCBsNSAtNDAgeiIgZmlsbD0iIzU1Njc3QSIvPgogIDxwYXRoIGQ9Ik0xNjAgMjc1IGwtMTAgMTAgbDEwIDEyIHoiIGZpbGw9IiM0MjUyNUYiLz4KICA8L2c+Cjwvc3ZnPg==" alt="최현석">
+              <div>
+                <b>행동중재</b>
+                <span>기능평가와 긍정적 행동지원 계획 수립</span>
+                <span class="nm">담당 · 최현석</span>
+              </div>
+            </a>
+            <a class="svcitem" href="#therapy">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTU4IiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNTgiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4MiBjMzIgMCA1NiAyMyA1NiA1NSB2MjQgYzAgMzggLTI1IDY0IC01NiA2NCBzLTU2IC0yNiAtNTYgLTY0IHYtMjQgYzAgLTMyIDI0IC01NSA1NiAtNTUgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxNzciIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTc3IiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEzMCAxNDQgcTEyIC02IDI1IC0yIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNS42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTY3IDE0MiBxMTMgLTQgMjQgMyIgc3Ryb2tlPSIjMkEyNTIzIiBzdHJva2Utd2lkdGg9IjUuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPGVsbGlwc2UgY3g9IjEzOSIgY3k9IjE1OSIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGVsbGlwc2UgY3g9IjE4MSIgY3k9IjE1OSIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGNpcmNsZSBjeD0iMTQwLjkiIGN5PSIxNTYuNiIgcj0iMS44IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjkiLz4KICA8Y2lyY2xlIGN4PSIxODIuOSIgY3k9IjE1Ni42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxwYXRoIGQ9Ik0xNjAgMTY1IHYxMSIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjQuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTE1MCAxOTAgcTEwIDcgMjAgMCIgc3Ryb2tlPSIjQzk3RjZFIiBzdHJva2Utd2lkdGg9IjQuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPCEtLSDrqLjrpqwgwrcg7Jm87Kq97Jy866GcIO2dkOultOuKlCDsgqzshKAg7JWe66i466asIC0tPgogIDxwYXRoIGQ9Ik0xMDEgMTU2IEM5NiA5NCAxMjMgNjIgMTYwIDYyIEMxOTkgNjIgMjI0IDk0IDIxOSAxNTYKICAgICAgICAgICBDMjE3IDEzNCAyMTIgMTEyIDIwNCAxMDUKICAgICAgICAgICBDMTk3IDExOSAxNzkgMTI3IDE1NyAxMjkKICAgICAgICAgICBDMTQwIDEzMSAxMjQgMTI3IDExMyAxMzgKICAgICAgICAgICBDMTA4IDE0NCAxMDQgMTUwIDEwMSAxNTYgWiIgZmlsbD0iIzJBMjUyMyIvPgogIDxwYXRoIGQ9Ik0yMDQgMTA1IEMxOTkgMTE1IDE5MCAxMjIgMTc4IDEyNiBDMTkxIDExNiAxOTkgMTA0IDIwMyA5MAogICAgICAgICAgIEMyMDQgOTUgMjA0IDEwMCAyMDQgMTA1IFoiIGZpbGw9IiMxQTE2MTUiLz4KICA8cGF0aCBkPSJNMTE2IDg4IEMxMzAgNzQgMTQ1IDY4IDE2MCA2OCBDMTc4IDY4IDE5NCA3NiAyMDUgOTIKICAgICAgICAgICBDMTkwIDc4IDE3MCA3MiAxNTAgNzYgQzEzNiA3OSAxMjUgODMgMTE2IDg4IFoiIGZpbGw9IiMzQTMzMzAiIG9wYWNpdHk9IjAuNSIvPgo8cGF0aCBkPSJNMTYwIDIzNCBjLTcwIDAgLTExNiAyNiAtMTM0IDU4IGMtMTAgMTggLTE1IDMyIC0xNyA1MCBoMzEwIGMtMiAtMTggLTcgLTMyIC0xNyAtNTAgYy0xOCAtMzIgLTY0IC01OCAtMTM0IC01OCB6IiBmaWxsPSIjRkFGQUY3Ii8+CiAgPHBhdGggZD0iTTQwIDMwNCBjLTQgMTQgLTcgMjQgLTggMzggaDI1NiBjLTEgLTE0IC00IC0yNCAtOCAtMzggeiIgZmlsbD0iI0U3RUFFNiIvPgogIDwhLS0g64+E67O1IOqygOydgCDquYMgKOyZvOyqvSDslYTrnpggwrcg7Jik66W47Kq97J20IOychOuhnCDqsrnsuagpIC0tPgogIDxwYXRoIGQ9Ik0xMTYgMjQ2IEwxNjAgMjkwIiBzdHJva2U9IiMyRTJFMkUiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTIwNCAyNDYgTDE2MCAyOTAgTDEzMiAzNDYiIHN0cm9rZT0iIzFFMUUxRSIgc3Ryb2tlLXdpZHRoPSIxOSIKICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgZmlsbD0ibm9uZSIvPgogIDwvZz4KPC9zdmc+" alt="김상엽">
+              <div>
+                <b>비만치료</b>
+                <span>기초 체력 평가와 개별 신체활동 설계</span>
+                <span class="nm">담당 · 김상엽</span>
+              </div>
+            </a>
+            <a class="svcitem" href="#therapy">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTYwIiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNjAiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4NiBjMzUgMCA2MCAyNCA2MCA1NSB2MTQgYzAgMzkgLTI3IDY1IC02MCA2NSBzLTYwIC0yNiAtNjAgLTY1IHYtMTQgYzAgLTMxIDI1IC01NSA2MCAtNTUgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxODAiIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTgwIiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEyNiAxNDEgcTE0IC03IDI4IC0xIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTY2IDE0MCBxMTQgLTYgMjggMSIgc3Ryb2tlPSIjMkEyNTIzIiBzdHJva2Utd2lkdGg9IjUuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPGVsbGlwc2UgY3g9IjEzOSIgY3k9IjE1NyIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGVsbGlwc2UgY3g9IjE4MSIgY3k9IjE1NyIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGNpcmNsZSBjeD0iMTQwLjkiIGN5PSIxNTQuNiIgcj0iMS44IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjkiLz4KICA8Y2lyY2xlIGN4PSIxODIuOSIgY3k9IjE1NC42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxwYXRoIGQ9Ik0xMzIgMTYxIHE3IDUgMTQgMCIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0xNzQgMTYxIHE3IDUgMTQgMCIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0xNjAgMTY1IHYxMSIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjQuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPHBhdGggZD0iTTE0MSAxODYgcTE5IDIyIDM4IDAgcS0xOSA4IC0zOCAwIHoiIGZpbGw9IiM4RTRBNDQiLz4KICA8cGF0aCBkPSJNMTQxIDE4NiBxMTkgNiAzOCAwIHEtMyA2IC0xOSA2IHEtMTYgMCAtMTkgLTYgeiIgZmlsbD0iI0ZGRkZGRiIvPgogIDxwYXRoIGQ9Ik0xNDEgMTg2IHExOSAyMiAzOCAwIiBzdHJva2U9IiNDOTdGNkUiIHN0cm9rZS13aWR0aD0iMy40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8IS0tIOuouOumrCDCtyDsp6fqs6Ag6rKw7J20IOyeiOuKlCDslZ7rqLjrpqwgLS0+CiAgPHBhdGggZD0iTTEwNCAxNTIgQzEwMCA5OCAxMjYgNzAgMTYwIDcwIEMxOTQgNzAgMjIwIDk4IDIxNiAxNTIKICAgICAgICAgICBDMjE0IDEzMCAyMTAgMTE0IDIwMiAxMDgKICAgICAgICAgICBDMTkzIDEyMCAxNzggMTI1IDE2MiAxMjMKICAgICAgICAgICBDMTUwIDEyMSAxMzggMTIzIDEyOCAxMzAKICAgICAgICAgICBDMTIxIDEzNSAxMTIgMTQzIDEwNCAxNTIgWiIgZmlsbD0iIzJBMjUyMyIvPgogIDxwYXRoIGQ9Ik0yMDIgMTA4IGMtNiA5IC0xNSAxNCAtMjYgMTcgYzEzIC04IDIzIC0xOSAyOCAtMzIgYy0xIDUgLTEgMTAgLTIgMTUgeiIgZmlsbD0iIzFBMTYxNSIvPgogIDxwYXRoIGQ9Ik0xMjggMTMwIGM5IC02IDIwIC05IDMyIC04IGMtMTMgMyAtMjQgOCAtMzIgMTUgeiIgZmlsbD0iIzFBMTYxNSIgb3BhY2l0eT0iMC43Ii8+CiAgPHBhdGggZD0iTTExOCA5NCBDMTMxIDgwIDE0NSA3NCAxNjAgNzQgQzE3NyA3NCAxOTIgODEgMjAzIDk1CiAgICAgICAgICAgQzE4OSA4NCAxNzIgNzkgMTU0IDgyIEMxNDAgODQgMTI3IDg4IDExOCA5NCBaIiBmaWxsPSIjM0EzMzMwIiBvcGFjaXR5PSIwLjUiLz4KPHBhdGggZD0iTTE2MCAyMzQgYy01OCAwIC0xMDQgMjYgLTEyMiA1OCBjLTEwIDE4IC0xNSAzMiAtMTcgNTAgaDI4NiBjLTIgLTE4IC03IC0zMiAtMTcgLTUwIGMtMTggLTMyIC02NCAtNTggLTEyMiAtNTggeiIgZmlsbD0iIzE3MTgxQSIvPgogIDwhLS0g7IOI7Yu0IOyIhOy5vOudvCAtLT4KICA8cGF0aCBkPSJNMTI2IDI0NCBjLTYgMyAtMTEgNiAtMTYgOSBsNTAgNDUgbDUwIC00NSBjLTUgLTMgLTEwIC02IC0xNiAtOQogICAgICAgICAgIGwtMzQgMzQgeiIgZmlsbD0iIzI2MjgyQyIvPgogIDwhLS0g7IWU7LigIC0tPgogIDxwYXRoIGQ9Ik0xMzQgMjQ4IGwyNiAyNiBsMjYgLTI2IGM3IDIgMTMgNSAxOSA4IGwtNDUgNDAgbC00NSAtNDAgYzYgLTMgMTIgLTYgMTkgLTggeiIgZmlsbD0iI0ZGRkZGRiIvPgogIDxwYXRoIGQ9Ik0xNDUgMjY0IGwxNSAyNCBsMTUgLTI0IGwtMyA4NCBoLTI0IHoiIGZpbGw9IiNGRkZGRkYiLz4KICA8IS0tIOuCmOu5hOuEpe2DgOydtCAtLT4KICA8cGF0aCBkPSJNMTYwIDI4MiBsLTI3IC0xMyBjLTMgLTIgLTcgMSAtNyA0IHYyNCBjMCA0IDQgNiA3IDQgeiIgZmlsbD0iIzJCMkUzNCIKICAgICAgICBzdHJva2U9IiM0QTRFNTYiIHN0cm9rZS13aWR0aD0iMS42Ii8+CiAgPHBhdGggZD0iTTE2MCAyODIgbDI3IC0xMyBjMyAtMiA3IDEgNyA0IHYyNCBjMCA0IC00IDYgLTcgNCB6IiBmaWxsPSIjMkIyRTM0IgogICAgICAgIHN0cm9rZT0iIzRBNEU1NiIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KICA8cmVjdCB4PSIxNTEiIHk9IjI3MyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iNSIgZmlsbD0iIzNBM0U0NiIgc3Ryb2tlPSIjNTY1QjY0IiBzdHJva2Utd2lkdGg9IjEuNCIvPgogIDwvZz4KPC9zdmc+" alt="이창희">
+              <div>
+                <b>언어치료</b>
+                <span>의사소통 기능 평가와 AAC 도입</span>
+                <span class="nm">담당 · 이창희</span>
+              </div>
+            </a>
+            <a class="svcitem" href="#therapy">
+              <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTYwIiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNjAiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4NiBjMzUgMCA2MCAyNCA2MCA1NSB2MTQgYzAgMzkgLTI3IDY1IC02MCA2NSBzLTYwIC0yNiAtNjAgLTY1IHYtMTQgYzAgLTMxIDI1IC01NSA2MCAtNTUgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxODAiIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTgwIiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEyNiAxNDEgcTE0IC03IDI4IC0xIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTY2IDE0MCBxMTQgLTYgMjggMSIgc3Ryb2tlPSIjMkEyNTIzIiBzdHJva2Utd2lkdGg9IjUuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPGVsbGlwc2UgY3g9IjEzOSIgY3k9IjE1NyIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGVsbGlwc2UgY3g9IjE4MSIgY3k9IjE1NyIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGNpcmNsZSBjeD0iMTQwLjkiIGN5PSIxNTQuNiIgcj0iMS44IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjkiLz4KICA8Y2lyY2xlIGN4PSIxODIuOSIgY3k9IjE1NC42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxwYXRoIGQ9Ik0xMzIgMTYxIHE3IDUgMTQgMCIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0xNzQgMTYxIHE3IDUgMTQgMCIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0xNjAgMTY1IHYxMSIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjQuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPHBhdGggZD0iTTE0MSAxODYgcTE5IDIyIDM4IDAgcS0xOSA4IC0zOCAwIHoiIGZpbGw9IiM4RTRBNDQiLz4KICA8cGF0aCBkPSJNMTQxIDE4NiBxMTkgNiAzOCAwIHEtMyA2IC0xOSA2IHEtMTYgMCAtMTkgLTYgeiIgZmlsbD0iI0ZGRkZGRiIvPgogIDxwYXRoIGQ9Ik0xNDEgMTg2IHExOSAyMiAzOCAwIiBzdHJva2U9IiNDOTdGNkUiIHN0cm9rZS13aWR0aD0iMy40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8IS0tIOuouOumrCDCtyDsp6fqs6Ag6rKw7J20IOyeiOuKlCDslZ7rqLjrpqwgLS0+CiAgPHBhdGggZD0iTTEwNCAxNTIgQzEwMCA5OCAxMjYgNzAgMTYwIDcwIEMxOTQgNzAgMjIwIDk4IDIxNiAxNTIKICAgICAgICAgICBDMjE0IDEzMCAyMTAgMTE0IDIwMiAxMDgKICAgICAgICAgICBDMTkzIDEyMCAxNzggMTI1IDE2MiAxMjMKICAgICAgICAgICBDMTUwIDEyMSAxMzggMTIzIDEyOCAxMzAKICAgICAgICAgICBDMTIxIDEzNSAxMTIgMTQzIDEwNCAxNTIgWiIgZmlsbD0iIzJBMjUyMyIvPgogIDxwYXRoIGQ9Ik0yMDIgMTA4IGMtNiA5IC0xNSAxNCAtMjYgMTcgYzEzIC04IDIzIC0xOSAyOCAtMzIgYy0xIDUgLTEgMTAgLTIgMTUgeiIgZmlsbD0iIzFBMTYxNSIvPgogIDxwYXRoIGQ9Ik0xMjggMTMwIGM5IC02IDIwIC05IDMyIC04IGMtMTMgMyAtMjQgOCAtMzIgMTUgeiIgZmlsbD0iIzFBMTYxNSIgb3BhY2l0eT0iMC43Ii8+CiAgPHBhdGggZD0iTTExOCA5NCBDMTMxIDgwIDE0NSA3NCAxNjAgNzQgQzE3NyA3NCAxOTIgODEgMjAzIDk1CiAgICAgICAgICAgQzE4OSA4NCAxNzIgNzkgMTU0IDgyIEMxNDAgODQgMTI3IDg4IDExOCA5NCBaIiBmaWxsPSIjM0EzMzMwIiBvcGFjaXR5PSIwLjUiLz4KPHBhdGggZD0iTTE2MCAyMzQgYy01OCAwIC0xMDQgMjYgLTEyMiA1OCBjLTEwIDE4IC0xNSAzMiAtMTcgNTAgaDI4NiBjLTIgLTE4IC03IC0zMiAtMTcgLTUwIGMtMTggLTMyIC02NCAtNTggLTEyMiAtNTggeiIgZmlsbD0iIzE3MTgxQSIvPgogIDwhLS0g7IOI7Yu0IOyIhOy5vOudvCAtLT4KICA8cGF0aCBkPSJNMTI2IDI0NCBjLTYgMyAtMTEgNiAtMTYgOSBsNTAgNDUgbDUwIC00NSBjLTUgLTMgLTEwIC02IC0xNiAtOQogICAgICAgICAgIGwtMzQgMzQgeiIgZmlsbD0iIzI2MjgyQyIvPgogIDwhLS0g7IWU7LigIC0tPgogIDxwYXRoIGQ9Ik0xMzQgMjQ4IGwyNiAyNiBsMjYgLTI2IGM3IDIgMTMgNSAxOSA4IGwtNDUgNDAgbC00NSAtNDAgYzYgLTMgMTIgLTYgMTkgLTggeiIgZmlsbD0iI0ZGRkZGRiIvPgogIDxwYXRoIGQ9Ik0xNDUgMjY0IGwxNSAyNCBsMTUgLTI0IGwtMyA4NCBoLTI0IHoiIGZpbGw9IiNGRkZGRkYiLz4KICA8IS0tIOuCmOu5hOuEpe2DgOydtCAtLT4KICA8cGF0aCBkPSJNMTYwIDI4MiBsLTI3IC0xMyBjLTMgLTIgLTcgMSAtNyA0IHYyNCBjMCA0IDQgNiA3IDQgeiIgZmlsbD0iIzJCMkUzNCIKICAgICAgICBzdHJva2U9IiM0QTRFNTYiIHN0cm9rZS13aWR0aD0iMS42Ii8+CiAgPHBhdGggZD0iTTE2MCAyODIgbDI3IC0xMyBjMyAtMiA3IDEgNyA0IHYyNCBjMCA0IC00IDYgLTcgNCB6IiBmaWxsPSIjMkIyRTM0IgogICAgICAgIHN0cm9rZT0iIzRBNEU1NiIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KICA8cmVjdCB4PSIxNTEiIHk9IjI3MyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iNSIgZmlsbD0iIzNBM0U0NiIgc3Ryb2tlPSIjNTY1QjY0IiBzdHJva2Utd2lkdGg9IjEuNCIvPgogIDwvZz4KPC9zdmc+" alt="이창희">
+              <div>
+                <b>인지치료</b>
+                <span>주의 · 기억 · 문제해결 전략 훈련</span>
+                <span class="nm">담당 · 이창희</span>
+              </div>
+            </a>
           </div>
-        </article>
-
-        <article class="branch t2">
-          <div class="exp">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTU4IiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNTgiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4MiBjMzIgMCA1NiAyMyA1NiA1NSB2MjQgYzAgMzggLTI1IDY0IC01NiA2NCBzLTU2IC0yNiAtNTYgLTY0IHYtMjQgYzAgLTMyIDI0IC01NSA1NiAtNTUgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxNzciIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTc3IiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEzMCAxNDQgcTEyIC02IDI1IC0yIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNS42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTY3IDE0MiBxMTMgLTQgMjQgMyIgc3Ryb2tlPSIjMkEyNTIzIiBzdHJva2Utd2lkdGg9IjUuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPGVsbGlwc2UgY3g9IjEzOSIgY3k9IjE1OSIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGVsbGlwc2UgY3g9IjE4MSIgY3k9IjE1OSIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGNpcmNsZSBjeD0iMTQwLjkiIGN5PSIxNTYuNiIgcj0iMS44IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjkiLz4KICA8Y2lyY2xlIGN4PSIxODIuOSIgY3k9IjE1Ni42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxwYXRoIGQ9Ik0xNjAgMTY1IHYxMSIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjQuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTE1MCAxOTAgcTEwIDcgMjAgMCIgc3Ryb2tlPSIjQzk3RjZFIiBzdHJva2Utd2lkdGg9IjQuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgPCEtLSDrqLjrpqwgwrcg7Jm87Kq97Jy866GcIO2dkOultOuKlCDsgqzshKAg7JWe66i466asIC0tPgogIDxwYXRoIGQ9Ik0xMDEgMTU2IEM5NiA5NCAxMjMgNjIgMTYwIDYyIEMxOTkgNjIgMjI0IDk0IDIxOSAxNTYKICAgICAgICAgICBDMjE3IDEzNCAyMTIgMTEyIDIwNCAxMDUKICAgICAgICAgICBDMTk3IDExOSAxNzkgMTI3IDE1NyAxMjkKICAgICAgICAgICBDMTQwIDEzMSAxMjQgMTI3IDExMyAxMzgKICAgICAgICAgICBDMTA4IDE0NCAxMDQgMTUwIDEwMSAxNTYgWiIgZmlsbD0iIzJBMjUyMyIvPgogIDxwYXRoIGQ9Ik0yMDQgMTA1IEMxOTkgMTE1IDE5MCAxMjIgMTc4IDEyNiBDMTkxIDExNiAxOTkgMTA0IDIwMyA5MAogICAgICAgICAgIEMyMDQgOTUgMjA0IDEwMCAyMDQgMTA1IFoiIGZpbGw9IiMxQTE2MTUiLz4KICA8cGF0aCBkPSJNMTE2IDg4IEMxMzAgNzQgMTQ1IDY4IDE2MCA2OCBDMTc4IDY4IDE5NCA3NiAyMDUgOTIKICAgICAgICAgICBDMTkwIDc4IDE3MCA3MiAxNTAgNzYgQzEzNiA3OSAxMjUgODMgMTE2IDg4IFoiIGZpbGw9IiMzQTMzMzAiIG9wYWNpdHk9IjAuNSIvPgo8cGF0aCBkPSJNMTYwIDIzNCBjLTcwIDAgLTExNiAyNiAtMTM0IDU4IGMtMTAgMTggLTE1IDMyIC0xNyA1MCBoMzEwIGMtMiAtMTggLTcgLTMyIC0xNyAtNTAgYy0xOCAtMzIgLTY0IC01OCAtMTM0IC01OCB6IiBmaWxsPSIjRkFGQUY3Ii8+CiAgPHBhdGggZD0iTTQwIDMwNCBjLTQgMTQgLTcgMjQgLTggMzggaDI1NiBjLTEgLTE0IC00IC0yNCAtOCAtMzggeiIgZmlsbD0iI0U3RUFFNiIvPgogIDwhLS0g64+E67O1IOqygOydgCDquYMgKOyZvOyqvSDslYTrnpggwrcg7Jik66W47Kq97J20IOychOuhnCDqsrnsuagpIC0tPgogIDxwYXRoIGQ9Ik0xMTYgMjQ2IEwxNjAgMjkwIiBzdHJva2U9IiMyRTJFMkUiIHN0cm9rZS13aWR0aD0iMTkiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTIwNCAyNDYgTDE2MCAyOTAgTDEzMiAzNDYiIHN0cm9rZT0iIzFFMUUxRSIgc3Ryb2tlLXdpZHRoPSIxOSIKICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0iYnV0dCIgZmlsbD0ibm9uZSIvPgogIDwvZz4KPC9zdmc+" alt="김상엽">
-            <div>
-              <b>김상엽</b>
-              <span>대구과학대학교 교수 · 대한민국합기도총협회 전문심판위원</span>
-            </div>
-          </div>
-          <span class="bl">영역 02 · 실기</span>
-          <h3>비만치료 <i class="plus">+</i> 신체적 개입<br>예방 중재 <em class="kd">실기</em></h3>
-          <ul>
-            <li>장애아동 비만 치료 및 신체활동 지원</li>
-            <li>관절과 호흡에 부담을 주지 않는 이탈 · 이동 보조</li>
-            <li>Level 2 실기 인증 및 2년 주기 재인증</li>
-          </ul>
-          <div class="minis">
-            <a class="mini" href="#programs">실기 연수 &rarr;</a>
-            <a class="mini" href="#therapy">비만 치료 &rarr;</a>
-          </div>
-        </article>
-
-        <article class="branch t3">
-          <div class="exp">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMjAgMzIwIiB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgcm9sZT0iaW1nIj4KICA8ZGVmcz48Y2xpcFBhdGggaWQ9ImMiPjxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIi8+PC9jbGlwUGF0aD48L2RlZnM+CiAgPGcgY2xpcC1wYXRoPSJ1cmwoI2MpIj4KICAgIDxjaXJjbGUgY3g9IjE2MCIgY3k9IjE2MCIgcj0iMTYwIiBmaWxsPSIjRTZGMkY0Ii8+CgogIDxwYXRoIGQ9Ik0xMzkgMTk0IGg0MiB2MzYgcTAgMjEgLTIxIDIxIHEtMjEgMCAtMjEgLTIxIHoiIGZpbGw9IiNFMEFGODUiLz4KICA8ZWxsaXBzZSBjeD0iMTAxIiBjeT0iMTYwIiByeD0iOS41IiByeT0iMTQuNSIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIyMTkiIGN5PSIxNjAiIHJ4PSI5LjUiIHJ5PSIxNC41IiBmaWxsPSIjRjJDQkE2Ii8+CiAgPHBhdGggZD0iTTE2MCA4NiBjMzUgMCA2MCAyNCA2MCA1NSB2MTQgYzAgMzkgLTI3IDY1IC02MCA2NSBzLTYwIC0yNiAtNjAgLTY1IHYtMTQgYzAgLTMxIDI1IC01NSA2MCAtNTUgeiIgZmlsbD0iI0YyQ0JBNiIvPgogIDxlbGxpcHNlIGN4PSIxMjQiIGN5PSIxODAiIHJ4PSIxMyIgcnk9IjgiIGZpbGw9IiNFQkExODkiIG9wYWNpdHk9IjAuMzgiLz4KICA8ZWxsaXBzZSBjeD0iMTk2IiBjeT0iMTgwIiByeD0iMTMiIHJ5PSI4IiBmaWxsPSIjRUJBMTg5IiBvcGFjaXR5PSIwLjM4Ii8+CiAgPHBhdGggZD0iTTEyNiAxNDEgcTE0IC03IDI4IC0xIiBzdHJva2U9IiMyQTI1MjMiIHN0cm9rZS13aWR0aD0iNS44IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz48cGF0aCBkPSJNMTY2IDE0MCBxMTQgLTYgMjggMSIgc3Ryb2tlPSIjMkEyNTIzIiBzdHJva2Utd2lkdGg9IjUuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPGVsbGlwc2UgY3g9IjEzOSIgY3k9IjE1NyIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGVsbGlwc2UgY3g9IjE4MSIgY3k9IjE1NyIgcng9IjUuNiIgcnk9IjYuNjk5OTk5OTk5OTk5OTk5IiBmaWxsPSIjMkEyNTIzIi8+CiAgPGNpcmNsZSBjeD0iMTQwLjkiIGN5PSIxNTQuNiIgcj0iMS44IiBmaWxsPSIjRkZGRkZGIiBvcGFjaXR5PSIwLjkiLz4KICA8Y2lyY2xlIGN4PSIxODIuOSIgY3k9IjE1NC42IiByPSIxLjgiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuOSIvPgogIDxwYXRoIGQ9Ik0xMzIgMTYxIHE3IDUgMTQgMCIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0xNzQgMTYxIHE3IDUgMTQgMCIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0xNjAgMTY1IHYxMSIgc3Ryb2tlPSIjRTBBRjg1IiBzdHJva2Utd2lkdGg9IjQuNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsPSJub25lIi8+CiAgCiAgPHBhdGggZD0iTTE0MSAxODYgcTE5IDIyIDM4IDAgcS0xOSA4IC0zOCAwIHoiIGZpbGw9IiM4RTRBNDQiLz4KICA8cGF0aCBkPSJNMTQxIDE4NiBxMTkgNiAzOCAwIHEtMyA2IC0xOSA2IHEtMTYgMCAtMTkgLTYgeiIgZmlsbD0iI0ZGRkZGRiIvPgogIDxwYXRoIGQ9Ik0xNDEgMTg2IHExOSAyMiAzOCAwIiBzdHJva2U9IiNDOTdGNkUiIHN0cm9rZS13aWR0aD0iMy40IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz4KICA8IS0tIOuouOumrCDCtyDsp6fqs6Ag6rKw7J20IOyeiOuKlCDslZ7rqLjrpqwgLS0+CiAgPHBhdGggZD0iTTEwNCAxNTIgQzEwMCA5OCAxMjYgNzAgMTYwIDcwIEMxOTQgNzAgMjIwIDk4IDIxNiAxNTIKICAgICAgICAgICBDMjE0IDEzMCAyMTAgMTE0IDIwMiAxMDgKICAgICAgICAgICBDMTkzIDEyMCAxNzggMTI1IDE2MiAxMjMKICAgICAgICAgICBDMTUwIDEyMSAxMzggMTIzIDEyOCAxMzAKICAgICAgICAgICBDMTIxIDEzNSAxMTIgMTQzIDEwNCAxNTIgWiIgZmlsbD0iIzJBMjUyMyIvPgogIDxwYXRoIGQ9Ik0yMDIgMTA4IGMtNiA5IC0xNSAxNCAtMjYgMTcgYzEzIC04IDIzIC0xOSAyOCAtMzIgYy0xIDUgLTEgMTAgLTIgMTUgeiIgZmlsbD0iIzFBMTYxNSIvPgogIDxwYXRoIGQ9Ik0xMjggMTMwIGM5IC02IDIwIC05IDMyIC04IGMtMTMgMyAtMjQgOCAtMzIgMTUgeiIgZmlsbD0iIzFBMTYxNSIgb3BhY2l0eT0iMC43Ii8+CiAgPHBhdGggZD0iTTExOCA5NCBDMTMxIDgwIDE0NSA3NCAxNjAgNzQgQzE3NyA3NCAxOTIgODEgMjAzIDk1CiAgICAgICAgICAgQzE4OSA4NCAxNzIgNzkgMTU0IDgyIEMxNDAgODQgMTI3IDg4IDExOCA5NCBaIiBmaWxsPSIjM0EzMzMwIiBvcGFjaXR5PSIwLjUiLz4KPHBhdGggZD0iTTE2MCAyMzQgYy01OCAwIC0xMDQgMjYgLTEyMiA1OCBjLTEwIDE4IC0xNSAzMiAtMTcgNTAgaDI4NiBjLTIgLTE4IC03IC0zMiAtMTcgLTUwIGMtMTggLTMyIC02NCAtNTggLTEyMiAtNTggeiIgZmlsbD0iIzE3MTgxQSIvPgogIDwhLS0g7IOI7Yu0IOyIhOy5vOudvCAtLT4KICA8cGF0aCBkPSJNMTI2IDI0NCBjLTYgMyAtMTEgNiAtMTYgOSBsNTAgNDUgbDUwIC00NSBjLTUgLTMgLTEwIC02IC0xNiAtOQogICAgICAgICAgIGwtMzQgMzQgeiIgZmlsbD0iIzI2MjgyQyIvPgogIDwhLS0g7IWU7LigIC0tPgogIDxwYXRoIGQ9Ik0xMzQgMjQ4IGwyNiAyNiBsMjYgLTI2IGM3IDIgMTMgNSAxOSA4IGwtNDUgNDAgbC00NSAtNDAgYzYgLTMgMTIgLTYgMTkgLTggeiIgZmlsbD0iI0ZGRkZGRiIvPgogIDxwYXRoIGQ9Ik0xNDUgMjY0IGwxNSAyNCBsMTUgLTI0IGwtMyA4NCBoLTI0IHoiIGZpbGw9IiNGRkZGRkYiLz4KICA8IS0tIOuCmOu5hOuEpe2DgOydtCAtLT4KICA8cGF0aCBkPSJNMTYwIDI4MiBsLTI3IC0xMyBjLTMgLTIgLTcgMSAtNyA0IHYyNCBjMCA0IDQgNiA3IDQgeiIgZmlsbD0iIzJCMkUzNCIKICAgICAgICBzdHJva2U9IiM0QTRFNTYiIHN0cm9rZS13aWR0aD0iMS42Ii8+CiAgPHBhdGggZD0iTTE2MCAyODIgbDI3IC0xMyBjMyAtMiA3IDEgNyA0IHYyNCBjMCA0IC00IDYgLTcgNCB6IiBmaWxsPSIjMkIyRTM0IgogICAgICAgIHN0cm9rZT0iIzRBNEU1NiIgc3Ryb2tlLXdpZHRoPSIxLjYiLz4KICA8cmVjdCB4PSIxNTEiIHk9IjI3MyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiByeD0iNSIgZmlsbD0iIzNBM0U0NiIgc3Ryb2tlPSIjNTY1QjY0IiBzdHJva2Utd2lkdGg9IjEuNCIvPgogIDwvZz4KPC9zdmc+" alt="이창희">
-            <div>
-              <b>이창희</b>
-              <span>대구광역시 특수교사</span>
-            </div>
-          </div>
-          <span class="bl">영역 03 · 치료</span>
-          <h3>언어치료 <i class="plus">+</i> 인지치료</h3>
-          <ul>
-            <li>의사소통 기능 평가와 보완대체의사소통(AAC) 도입</li>
-            <li>주의 · 기억 · 문제해결 인지 전략 훈련</li>
-            <li>개별 세션 및 학급 · 기관 컨설팅</li>
-          </ul>
-          <div class="minis">
-            <a class="mini" href="#therapy">치료 프로그램 &rarr;</a>
-            <a class="mini" href="#contact">상담 문의 &rarr;</a>
-          </div>
-        </article>
+          <p class="dom-note">개입이 필요해지는 상황 자체를 줄입니다. 아동에게 직접 제공하는 서비스입니다.</p>
+        </section>
       </div>
 
       <p class="map-note">
-        세 영역 모두에 신체적 개입 예방이 들어가 있습니다. 이론은 판단 기준을, 실기는 안전한 절차를,
-        언어 &middot; 인지치료는 개입이 필요해지는 상황 자체를 줄이는 역할을 맡습니다.
+        배우는 사람이 종사자인지, 지원받는 사람이 아동인지에 따라 두 영역으로 나뉩니다.
+        같은 전문가가 양쪽을 함께 맡아 현장의 판단과 아동의 변화가 끊기지 않도록 설계했습니다.
       </p>
     </section>
 
@@ -476,8 +514,8 @@ footer a:hover{color:#fff}
 <div class="stats">
   <div class="wrap row">
     <div><div class="v">4단계</div><div class="k">위계적 대응 프로토콜</div></div>
-    <div><div class="v">3영역</div><div class="k">전문가별 운영</div></div>
-    <div><div class="v">5개</div><div class="k">연수 · 치료 과정</div></div>
+    <div><div class="v">2대영역</div><div class="k">종사자 교육 · 장애아동 지원</div></div>
+    <div><div class="v">6개</div><div class="k">세부 과정</div></div>
     <div><div class="v">2년</div><div class="k">실기 인증 유효 기간</div></div>
   </div>
 </div>
@@ -533,48 +571,37 @@ footer a:hover{color:#fff}
   <div class="wrap">
     <div class="sec-head center">
       <span class="tag">Services</span>
-      <h2>세 전문가가<br>세 영역을 맡습니다</h2>
-      <p>영역마다 담당 전문가가 정해져 있고, 세 영역 모두에 신체적 개입 예방이 들어가 있습니다. 개입 기술을 늘리는 것이 아니라 개입이 필요한 상황을 줄이는 것이 공통 목표입니다.</p>
+      <h2>두 개의 대영역으로<br>운영합니다</h2>
+      <p>배우는 사람이 종사자인지, 지원받는 사람이 아동인지에 따라 나뉩니다. 세부 과정은 여섯 개이며, 세 명의 전문가가 두 영역을 나누어 맡습니다.</p>
     </div>
 
-    <div class="grid g3">
+    <div class="grid g2">
       <article class="card">
-        <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <h3>행동중재 &middot; 신체적 개입 예방 중재 (이론)</h3>
-        <p>행동의 기능을 파악해 도전행동의 발생 조건 자체를 바꾸고, 개입이 불가피한 상황에서 무엇이 허용되고 무엇이 금지되는지를 법령 조문 수준에서 판단하도록 훈련합니다.</p>
+        <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.66 2.69 3 6 3s6-1.34 6-3v-5"/></svg></div>
+        <h3>대영역 1 · 종사자 교육</h3>
+        <p><strong>대상</strong> — 특수교사, 특수교육실무원, 사회복지사, 장애인 거주 · 주간활동시설 생활지도원, 치료사, 활동지원사, 보육교직원 등 학생과 이용자에게 직접 개입이 발생할 수 있는 현장의 종사자.</p>
         <ul class="ul">
-          <li>기능평가(FBA)와 긍정적 행동지원(PBS) 설계</li>
-          <li>개별 위기관리계획 수립과 개별화교육계획 연계</li>
-          <li>법령 위계 · 제지의 요건 · 사후 보고와 기록</li>
-          <li>Level 1 예방 · 진정 대화 기초, Level 3 강사 양성</li>
+          <li><strong>신체적 개입 예방 중재 · 이론</strong> (담당 최현석) — 행동의 기능과 위기 발달 단계, 법령 위계와 제지의 요건, 사후 보고 · 통지 · 기록 체계</li>
+          <li><strong>신체적 개입 예방 중재 · 실기</strong> (담당 김상엽) — 안전 거리 확보와 회피 · 이탈, 관절과 호흡에 부담을 주지 않는 이동 보조, 위험 자세 식별과 종료 시점 판단</li>
         </ul>
-        <p style="margin-top:16px;font-size:13.5px;color:var(--brand-2);font-weight:700">담당 · 최현석 (위덕대학교 특수교육학과 교수)</p>
-      </article>
-
-      <article class="card">
-        <div class="ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2a8 8 0 0 1-8-8"/></svg></div>
-        <h3>비만치료 &middot; 신체적 개입 예방 중재 (실기)</h3>
-        <p>장애아동의 신체활동 참여를 늘려 건강과 체력을 회복시키는 일과, 위기 상황에서 안전하게 몸을 쓰는 절차를 훈련하는 일을 한 사람이 맡습니다. 몸을 다루는 원리가 같기 때문입니다.</p>
-        <ul class="ul">
-          <li>기초 체력 · 신체활동 참여 수준 평가</li>
-          <li>장애 유형별 개별 신체활동 설계와 가정 연계</li>
-          <li>관절과 호흡에 부담을 주지 않는 이탈 &middot; 이동 보조</li>
-          <li>Level 2 실기 인증, 관찰 평가, 2년 주기 재인증</li>
-        </ul>
-        <p style="margin-top:16px;font-size:13.5px;color:var(--brand-2);font-weight:700">담당 · 김상엽 (대구과학대학교 교수)</p>
+        <p style="margin-top:16px;font-size:13.5px;color:var(--muted)">Level 1 · 2 · 3 단계로 운영되며, 실기 인증은 2년 주기로 재인증합니다. 교육청 단위 위탁연수와 기관 방문 연수가 가능합니다.</p>
+        <div style="height:16px"></div>
+        <a class="btn btn-ghost" href="#programs">교육 과정 보기</a>
       </article>
 
       <article class="card">
         <div class="ico amber" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-        <h3>언어치료 &middot; 인지치료</h3>
-        <p>요구를 표현할 수단이 없을 때 도전행동이 그 자리를 대신합니다. 의사소통과 인지를 지원하는 것은 치료인 동시에 가장 앞선 단계의 예방 중재입니다.</p>
+        <h3>대영역 2 · 장애아동 지원</h3>
+        <p><strong>대상</strong> — 도전행동, 의사소통, 인지, 건강 영역에서 지원이 필요한 장애 학생. 아동에게 직접 제공하는 서비스이며, 보호자 및 담임교사 상담이 함께 이루어집니다.</p>
         <ul class="ul">
-          <li>의사소통 기능 평가 및 대체 행동 탐색</li>
-          <li>보완대체의사소통(AAC) 도입과 일과 내 정착</li>
-          <li>주의 &middot; 기억 &middot; 문제해결 인지 전략 훈련</li>
-          <li>개별 세션 및 담임교사 대상 학급 컨설팅</li>
+          <li><strong>행동중재</strong> (담당 최현석) — 기능평가(FBA)와 긍정적 행동지원(PBS) 계획 수립, 개별 위기관리계획과 개별화교육계획 연계</li>
+          <li><strong>비만치료</strong> (담당 김상엽) — 기초 체력과 신체활동 참여 수준 평가, 장애 유형별 개별 신체활동 설계, 생활습관과 가정 연계</li>
+          <li><strong>언어치료</strong> (담당 이창희) — 의사소통 기능 평가, 보완대체의사소통(AAC) 도입, 요구하기 · 거부하기 핵심 기능어 지도</li>
+          <li><strong>인지치료</strong> (담당 이창희) — 주의 · 기억 · 문제해결 전략 훈련, 학습 접근성 지원</li>
         </ul>
-        <p style="margin-top:16px;font-size:13.5px;color:var(--brand-2);font-weight:700">담당 · 이창희 (대구광역시 특수교사)</p>
+        <p style="margin-top:16px;font-size:13.5px;color:var(--muted)">회당 시간과 비용은 추후 안내합니다. 의학적 진단과 처방이 필요한 경우 의료기관과 연계합니다.</p>
+        <div style="height:16px"></div>
+        <a class="btn btn-ghost" href="#therapy">지원 프로그램 보기</a>
       </article>
     </div>
   </div>
@@ -658,17 +685,59 @@ footer a:hover{color:#fff}
 <section id="therapy">
   <div class="wrap">
     <div class="sec-head">
-      <span class="tag">Therapy</span>
-      <h2>치료 프로그램</h2>
-      <p>연수와 별개로 운영하는 과정입니다. 도전행동의 원인이 의사소통의 어려움이나 건강 문제에 있을 때, 개입 훈련보다 이 과정이 먼저입니다.</p>
+      <span class="tag">For Children</span>
+      <h2>장애아동 지원 프로그램</h2>
+      <p>대영역 2에 해당하는 네 개 과정입니다. 아동에게 직접 제공하며, 종사자 교육과 달리 개별 세션으로 운영됩니다. 도전행동의 원인이 의사소통이나 건강에 있을 때는 개입 훈련보다 이 과정이 먼저입니다.</p>
     </div>
 
     <div class="grid g2">
       <article class="course">
         <div class="top">
-          <span class="level">THERAPY 01</span>
-          <h3>언어치료 · 인지치료</h3>
-          <p class="who">의사소통과 인지 지원이 필요한 학생 · 담당 이창희</p>
+          <span class="level">CHILD 01</span>
+          <h3>행동중재</h3>
+          <p class="who">도전행동이 반복되는 학생 · 담당 최현석</p>
+        </div>
+        <div class="body">
+          <div class="meta"><span class="chip">기능평가 포함</span><span class="chip">계획 수립</span><span class="chip">학교 연계</span><span class="chip">시간·비용 추후 안내</span></div>
+          <ul class="ul">
+            <li>행동의 선행사건 · 결과 분석을 통한 기능평가(FBA)</li>
+            <li>긍정적 행동지원(PBS) 계획 수립과 실행 점검</li>
+            <li>대체행동 지도 및 강화 계획 설계</li>
+            <li>개별 위기관리계획 작성과 개별화교육계획 연계</li>
+            <li>담임교사 · 보호자 대상 실행 코칭</li>
+          </ul>
+          <p style="margin:16px 0 0;font-size:13.5px;color:var(--muted)">고시 제15조 제3항은 심각한 문제행동을 보이는 특수교육대상자의 개별화교육계획에 행동 중재 지원 사항을 포함하도록 정하고 있습니다. 본 과정은 그 항목을 실행 수준으로 구체화합니다.</p>
+          <div style="height:18px"></div>
+          <a class="btn btn-ghost" href="#contact">과정 문의</a>
+        </div>
+      </article>
+
+      <article class="course">
+        <div class="top">
+          <span class="level">CHILD 02</span>
+          <h3>비만치료</h3>
+          <p class="who">장애아동 · 담당 김상엽</p>
+        </div>
+        <div class="body">
+          <div class="meta"><span class="chip">개별 상담</span><span class="chip">집단 프로그램</span><span class="chip">체력 평가 포함</span><span class="chip">시간·비용 추후 안내</span></div>
+          <ul class="ul">
+            <li>기초 체력 및 신체활동 참여 수준 평가</li>
+            <li>장애 유형별 특성을 고려한 개별 신체활동 설계</li>
+            <li>생활습관 · 식습관 지원과 가정 연계</li>
+            <li>참여가 지속되도록 하는 환경 조정</li>
+            <li>보호자 상담 및 가정 내 실행 지원</li>
+          </ul>
+          <p style="margin:16px 0 0;font-size:13.5px;color:var(--muted)">장애아동은 신체활동 참여 기회가 제한되기 쉬워 비만 위험이 높습니다. 본 과정은 의료 행위가 아니라 신체활동과 생활습관을 지원하는 교육 프로그램이며, 의학적 진단과 처방이 필요한 경우 의료기관과 연계합니다.</p>
+          <div style="height:18px"></div>
+          <a class="btn btn-ghost" href="#contact">과정 문의</a>
+        </div>
+      </article>
+
+      <article class="course">
+        <div class="top">
+          <span class="level">CHILD 03</span>
+          <h3>언어치료</h3>
+          <p class="who">의사소통 지원이 필요한 학생 · 담당 이창희</p>
         </div>
         <div class="body">
           <div class="meta"><span class="chip">개별 세션</span><span class="chip">학급 컨설팅</span><span class="chip">주 1~2회</span><span class="chip">시간·비용 추후 안내</span></div>
@@ -676,7 +745,7 @@ footer a:hover{color:#fff}
             <li>의사소통 기능 평가 및 대체 행동 탐색</li>
             <li>보완대체의사소통(AAC) 도입과 일과 내 정착</li>
             <li>요구하기 · 거부하기 등 핵심 기능어 지도</li>
-            <li>주의 · 기억 · 문제해결 인지 전략 훈련</li>
+            <li>또래와의 상호작용 기회 설계</li>
             <li>담임교사 대상 학급 적용 컨설팅</li>
           </ul>
           <p style="margin:16px 0 0;font-size:13.5px;color:var(--muted)">요구를 표현할 수단이 없을 때 도전행동이 그 자리를 대신합니다. 기능평가에서 요구 표현 실패가 확인되면 이 과정이 1차 개입입니다.</p>
@@ -687,20 +756,20 @@ footer a:hover{color:#fff}
 
       <article class="course">
         <div class="top">
-          <span class="level">THERAPY 02</span>
-          <h3>비만 치료 및 관리</h3>
-          <p class="who">장애아동 · 담당 김상엽</p>
+          <span class="level">CHILD 04</span>
+          <h3>인지치료</h3>
+          <p class="who">인지 지원이 필요한 학생 · 담당 이창희</p>
         </div>
         <div class="body">
-          <div class="meta"><span class="chip">개별 상담</span><span class="chip">집단 프로그램</span><span class="chip">체력 평가 포함</span><span class="chip">시간·비용 추후 안내</span></div>
+          <div class="meta"><span class="chip">개별 세션</span><span class="chip">학습 지원</span><span class="chip">주 1~2회</span><span class="chip">시간·비용 추후 안내</span></div>
           <ul class="ul">
-            <li>장애아동 기초 체력 및 신체활동 참여 수준 평가</li>
-            <li>장애 유형별 특성을 고려한 개별 신체활동 설계</li>
-            <li>생활습관 · 식습관 지원과 가정 연계</li>
-            <li>참여가 지속되도록 하는 환경 조정</li>
-            <li>보호자 상담 및 가정 내 실행 지원</li>
+            <li>주의 집중 · 작업기억 · 문제해결 전략 훈련</li>
+            <li>과제 난이도 조정과 학습 접근성 지원</li>
+            <li>일과 예측성 확보를 위한 시각적 구조화</li>
+            <li>자기조절 및 자기점검 전략 지도</li>
+            <li>학급 내 일반화 계획 수립</li>
           </ul>
-          <p style="margin:16px 0 0;font-size:13.5px;color:var(--muted)">장애아동은 신체활동 참여 기회가 제한되기 쉬워 비만 위험이 높습니다. 본 과정은 의료 행위가 아니라 신체활동과 생활습관을 지원하는 교육 프로그램이며, 의학적 진단과 처방이 필요한 경우 의료기관과 연계합니다.</p>
+          <p style="margin:16px 0 0;font-size:13.5px;color:var(--muted)">과제 회피에서 비롯된 도전행동은 과제 자체를 바꾸면 사라지는 경우가 많습니다. 인지 지원은 치료인 동시에 예방 중재입니다.</p>
           <div style="height:18px"></div>
           <a class="btn btn-ghost" href="#contact">과정 문의</a>
         </div>
